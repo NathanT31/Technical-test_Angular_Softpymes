@@ -1,1 +1,16 @@
-{}
+{
+  "hosting": {
+    "public": "dist/hu01-user-auth/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
