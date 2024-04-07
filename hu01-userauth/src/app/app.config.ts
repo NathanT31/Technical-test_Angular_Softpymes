@@ -5,9 +5,13 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(),
+    provideToastr({ timeOut: 5000, preventDuplicates: true, progressBar: true }),
     provideRouter(routes), 
     provideClientHydration(), 
     importProvidersFrom(provideFirebaseApp(() => initializeApp({

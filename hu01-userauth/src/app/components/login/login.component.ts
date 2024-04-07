@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../core/services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder, 
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -54,16 +56,19 @@ export class LoginComponent {
   logIn(): void {
     if (this.loginForm.invalid) {
       console.log("Error. Form data is invalid");
+      this.toastr.error('The data provided is incorrect.', 'LogIn Error')
       return;
     };
 
     this.userService.logIn(this.loginForm.value)
       .then(response => {
         console.log(response);
+        this.toastr.success('You have successfully logged in. Welcome!', 'LogIn Succes');
         this.router.navigate(['/home']);
       })
-      .catch(err => {
+      .catch(err => {''
         console.log(err);
+        this.toastr.error('Email or password are incorrect.', 'LogIn Error')
         this.loginForm.reset();
       });
   }
