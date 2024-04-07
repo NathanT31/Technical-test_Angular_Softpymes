@@ -12,3 +12,11 @@ A continuación, se encuentran los links donde se encuentran alojados las aplica
 
 - <b>HU01 Autenticación de Usuario</b>: [hu01-userauth](https://hu01-userauth.web.app/login)
 - <b>HU02 Creación de Productos</b>: [hu02-product-creation](https://hu02-product-creation.web.app/)
+
+#### Nota: Para corroborar el funcionamiento de la HU01, se proporcionan a continuación dos credenciales registradas en la aplicación, por lo cual se puede hacer el login con ellas
+
+    email:  correoprueba@gmail.com
+    pass:   correoprueba0000
+
+    email:  admin@admin.com
+    pass:   admin1234
